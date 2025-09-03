@@ -12,8 +12,8 @@ html {
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #ffffff;
+    color: #e2e8f0;
+    background-color: #0f172a;
 }
 
 .container {
@@ -43,7 +43,7 @@ body {
 .nav-brand h1 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2563eb;
+    color: #06b6d4;
 }
 
 .nav-menu {
@@ -54,13 +54,13 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: #333;
+    color: #e2e8f0;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #2563eb;
+    color: #06b6d4;
 }
 
 .nav-toggle {
@@ -72,7 +72,7 @@ body {
 .nav-toggle span {
     width: 25px;
     height: 3px;
-    background-color: #333;
+    background-color: #e2e8f0;
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -80,7 +80,7 @@ body {
 /* ヒーローセクション */
 .hero {
     padding: 120px 0 80px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 50%, #f97316 100%);
     color: white;
     min-height: 100vh;
     display: flex;
@@ -134,13 +134,14 @@ body {
 }
 
 .btn-primary {
-    background-color: #2563eb;
+    background-color: #06b6d4;
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: #1d4ed8;
+    background-color: #0891b2;
     transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
 }
 
 .btn-secondary {
@@ -151,7 +152,8 @@ body {
 
 .btn-secondary:hover {
     background-color: white;
-    color: #2563eb;
+    color: #06b6d4;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
 }
 
 .hero-image {
@@ -178,13 +180,13 @@ body {
     font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
-    color: #1f2937;
+    color: #f8fafc;
 }
 
 /* アバウトセクション */
 .about {
     padding: 80px 0;
-    background-color: #f8fafc;
+    background-color: #1e293b;
 }
 
 .about-content {
@@ -196,13 +198,13 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #1f2937;
+    color: #f8fafc;
 }
 
 .about-text p {
     font-size: 1.1rem;
     margin-bottom: 2rem;
-    color: #4b5563;
+    color: #cbd5e1;
 }
 
 .skills {
@@ -217,7 +219,7 @@ body {
     display: block;
     font-weight: 500;
     margin-bottom: 0.5rem;
-    color: #1f2937;
+    color: #f8fafc;
 }
 
 .skill-bar {
@@ -230,7 +232,7 @@ body {
 
 .skill-progress {
     height: 100%;
-    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    background: linear-gradient(90deg, #06b6d4, #8b5cf6);
     border-radius: 4px;
     transition: width 1s ease;
 }
@@ -238,6 +240,7 @@ body {
 /* プロジェクトセクション */
 .projects {
     padding: 80px 0;
+    background-color: #0f172a;
 }
 
 .projects-grid {
@@ -247,21 +250,23 @@ body {
 }
 
 .project-card {
-    background-color: white;
+    background-color: #1e293b;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #334155;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 30px rgba(6, 182, 212, 0.2);
+    border-color: #06b6d4;
 }
 
 .project-image {
     height: 200px;
-    background-color: #f1f5f9;
+    background-color: #334155;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -279,11 +284,11 @@ body {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #1f2937;
+    color: #f8fafc;
 }
 
 .project-content p {
-    color: #6b7280;
+    color: #cbd5e1;
     margin-bottom: 1rem;
 }
 
@@ -295,12 +300,13 @@ body {
 }
 
 .tag {
-    background-color: #e0e7ff;
-    color: #3730a3;
+    background-color: rgba(6, 182, 212, 0.2);
+    color: #06b6d4;
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-size: 0.875rem;
     font-weight: 500;
+    border: 1px solid rgba(6, 182, 212, 0.3);
 }
 
 .project-links {
@@ -309,20 +315,21 @@ body {
 }
 
 .project-link {
-    color: #2563eb;
+    color: #06b6d4;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .project-link:hover {
-    color: #1d4ed8;
+    color: #0891b2;
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
 }
 
 /* コンタクトセクション */
 .contact {
     padding: 80px 0;
-    background-color: #f8fafc;
+    background-color: #1e293b;
 }
 
 .contact-content {
@@ -337,11 +344,11 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #1f2937;
+    color: #f8fafc;
 }
 
 .contact-info p {
-    color: #6b7280;
+    color: #cbd5e1;
     margin-bottom: 2rem;
 }
 
@@ -355,7 +362,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    color: #4b5563;
+    color: #cbd5e1;
 }
 
 .contact-icon {
@@ -363,10 +370,11 @@ body {
 }
 
 .contact-form {
-    background-color: white;
+    background-color: #334155;
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #475569;
 }
 
 .form-group {
@@ -377,30 +385,34 @@ body {
     display: block;
     font-weight: 500;
     margin-bottom: 0.5rem;
-    color: #1f2937;
+    color: #f8fafc;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
     padding: 0.75rem;
-    border: 2px solid #e5e7eb;
+    border: 2px solid #475569;
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
+    background-color: #1e293b;
+    color: #e2e8f0;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #2563eb;
+    border-color: #06b6d4;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
 }
 
 /* フッター */
 .footer {
-    background-color: #1f2937;
+    background-color: #0f172a;
     color: white;
     padding: 3rem 0 1rem;
+    border-top: 1px solid #334155;
 }
 
 .footer-content {
@@ -431,7 +443,8 @@ body {
 }
 
 .footer-section a:hover {
-    color: #2563eb;
+    color: #06b6d4;
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
 }
 
 .social-links {
@@ -446,7 +459,8 @@ body {
 }
 
 .social-link:hover {
-    color: #2563eb;
+    color: #06b6d4;
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
 }
 
 .footer-bottom {

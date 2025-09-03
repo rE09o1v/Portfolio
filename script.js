@@ -209,7 +209,7 @@ style.textContent = `
         }
         
         .nav-link.active {
-            color: #2563eb;
+            color: #06b6d4;
             font-weight: 600;
         }
     }
