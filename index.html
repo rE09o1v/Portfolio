@@ -43,32 +43,49 @@
             <h1 class="hero-title">reo<span class="cursor">_</span></h1>
             <p class="hero-subtitle">Engineer / Full-stack / Automation</p>
             <p class="hero-description">
-              C:\projects 配下の実運用プロジェクトを継続的に改善しています。最近は
-              Next.js / TypeScript、Flutter、Python の3軸で、Web・モバイル・自動化を横断して開発中です。
+              個人用プロジェクトを継続的に改善しています。最近は Next.js /
+              TypeScript、Flutter、Python
+              の3軸で、Web・モバイル・自動化を横断して開発中です。
             </p>
             <div class="hero-buttons">
               <a href="#projects" class="btn btn-primary">./show_projects</a>
               <a href="#contact" class="btn btn-secondary">./open_contact</a>
             </div>
             <ul class="hero-meta">
-              <li><span>$ active_stack</span> Next.js / TypeScript / React / Flutter / Python</li>
-              <li><span>$ backend</span> FastAPI / Prisma / SQLAlchemy / PostgreSQL</li>
-              <li><span>$ infra</span> Docker / Redis / Google APIs / GitHub</li>
+              <li>
+                <span>$ active_stack</span> Next.js / TypeScript / React /
+                Flutter / Python
+              </li>
+              <li>
+                <span>$ backend</span> FastAPI / Zod / SQLAlchemy / SQLite
+              </li>
+              <li>
+                <span>$ infra</span> Docker / Redis / Google APIs / GitHub
+              </li>
             </ul>
           </div>
 
-          <aside class="terminal-window reveal" aria-label="ターミナル風プロフィール">
+          <aside
+            class="terminal-window reveal"
+            aria-label="ターミナル風プロフィール"
+          >
             <div class="terminal-top">
               <span></span><span></span><span></span>
             </div>
             <div class="terminal-body">
               <p><span class="prompt">reo@portfolio:~$</span> whoami</p>
               <p class="terminal-result">Creative Engineer / Japan</p>
-              <p><span class="prompt">reo@portfolio:~$</span> cat mission.txt</p>
-              <p class="terminal-result">Build useful things people actually enjoy.</p>
+              <p>
+                <span class="prompt">reo@portfolio:~$</span> cat mission.txt
+              </p>
+              <p class="terminal-result">
+                Build useful things people actually enjoy.
+              </p>
               <p><span class="prompt">reo@portfolio:~$</span> ls projects/</p>
-              <p class="terminal-result">keystone eye-of-cascade auto-flow c-orc ...</p>
-              <p><span class="prompt">reo@portfolio:~$</span> ping collaboration</p>
+              <p class="terminal-result">transport_daily_report c-orc eye-of-cascade</p>
+              <p>
+                <span class="prompt">reo@portfolio:~$</span> ping collaboration
+              </p>
               <p class="terminal-result">reply in &lt; 24h</p>
             </div>
           </aside>
@@ -82,7 +99,7 @@
             <article class="panel reveal">
               <h3>Profile</h3>
               <p>
-                最近は C:\projects のローカル開発群を中心に、業務寄りのアプリと開発支援ツールを
+                最近はローカル開発群を中心に、業務寄りのアプリと開発支援ツールを
                 並行して構築しています。要件整理から実装、検証、運用改善まで一貫して対応します。
               </p>
               <p>
@@ -122,11 +139,11 @@
                 </div>
                 <div class="skill-item">
                   <div class="skill-head">
-                    <span>Prisma / SQL / Redis / Docker</span>
-                    <span>74%</span>
+                    <span>Textual / Vitest / Git / Docker</span>
+                    <span>76%</span>
                   </div>
                   <div class="skill-bar">
-                    <div class="skill-progress" data-level="74%"></div>
+                    <div class="skill-progress" data-level="76%"></div>
                   </div>
                 </div>
               </div>
@@ -141,125 +158,36 @@
           <div class="projects-grid">
             <article class="project-card reveal">
               <div class="project-head">
-                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                <p>keystone</p>
-              </div>
-              <div class="project-content">
-                <h3>Keystone (CausalAct)</h3>
-                <p>因果グラフでタスク実行を支援する Web アプリ。可視化と行動実行を結びつける設計。</p>
-                <div class="project-tags">
-                  <span class="tag">Next.js 16</span>
-                  <span class="tag">TypeScript</span>
-                  <span class="tag">React Flow</span>
-                  <span class="tag">Prisma</span>
-                  <span class="tag">Zustand</span>
-                </div>
-                <span class="project-link is-disabled">local --private</span>
-              </div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-head">
-                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                <p>eye-of-cascade</p>
-              </div>
-              <div class="project-content">
-                <h3>Eye of Cascade</h3>
-                <p>エージェント実行セッションとコード変遷を可視化する監視ダッシュボード。</p>
-                <div class="project-tags">
-                  <span class="tag">Next.js 16</span>
-                  <span class="tag">TypeScript</span>
-                  <span class="tag">Vitest</span>
-                  <span class="tag">Zod</span>
-                </div>
-                <span class="project-link is-disabled">local --private</span>
-              </div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-head">
-                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                <p>auto-flow</p>
-              </div>
-              <div class="project-content">
-                <h3>AutoFlow</h3>
-                <p>Discord DM 起点でタスク分解と2週間スケジューリングを行う自動運用基盤。</p>
-                <div class="project-tags">
-                  <span class="tag">Python</span>
-                  <span class="tag">FastAPI</span>
-                  <span class="tag">Celery + Redis</span>
-                  <span class="tag">Next.js</span>
-                  <span class="tag">Docker</span>
-                </div>
-                <a
-                  href="https://github.com/Daiki-Iwashita/auto-flow"
-                  class="project-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  view --source
-                </a>
-              </div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-head">
-                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                <p>NEO_SwimmyTool</p>
-              </div>
-              <div class="project-content">
-                <h3>NEO SwimmyTool</h3>
-                <p>プログラミング教室向け生徒管理システム。授業記録とDrive連携を統合。</p>
-                <div class="project-tags">
-                  <span class="tag">React 18</span>
-                  <span class="tag">MUI</span>
-                  <span class="tag">Chart.js</span>
-                  <span class="tag">Google Drive API</span>
-                </div>
-                <a
-                  href="https://github.com/rE09o1v/NEO_SwimmyTool"
-                  class="project-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  view --source
-                </a>
-              </div>
-            </article>
-
-            <article class="project-card reveal">
-              <div class="project-head">
-                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <span class="dot"></span><span class="dot"></span
+                ><span class="dot"></span>
                 <p>transport_daily_report</p>
               </div>
               <div class="project-content">
                 <h3>らくレポ！</h3>
-                <p>運送業向け日報アプリ。位置情報、帳票PDF、共有までをモバイルで完結。</p>
+                <p>
+                  運送業向け日報アプリ。位置情報、帳票PDF、共有までをモバイルで完結。
+                </p>
                 <div class="project-tags">
                   <span class="tag">Flutter</span>
                   <span class="tag">Dart</span>
                   <span class="tag">Google Maps</span>
                   <span class="tag">PDF Export</span>
                 </div>
-                <a
-                  href="https://github.com/rE09o1v/transport_daily_report"
-                  class="project-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  view --source
-                </a>
+                <span class="project-link is-disabled">source -- private</span>
               </div>
             </article>
 
             <article class="project-card reveal">
               <div class="project-head">
-                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <span class="dot"></span><span class="dot"></span
+                ><span class="dot"></span>
                 <p>c-orc</p>
               </div>
               <div class="project-content">
                 <h3>C-Orc</h3>
-                <p>CLI型AIコーディングを並列実行する TUI オーケストレーター。</p>
+                <p>
+                  CLI型AIコーディングを並列実行する TUI オーケストレーター。
+                </p>
                 <div class="project-tags">
                   <span class="tag">Python</span>
                   <span class="tag">Textual</span>
@@ -267,14 +195,28 @@
                   <span class="tag">Pydantic</span>
                   <span class="tag">SQLite</span>
                 </div>
-                <a
-                  href="https://github.com/Daiki-Iwashita/c-orc"
-                  class="project-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  view --source
-                </a>
+                <span class="project-link is-disabled">source -- private</span>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-head">
+                <span class="dot"></span><span class="dot"></span
+                ><span class="dot"></span>
+                <p>eye-of-cascade</p>
+              </div>
+              <div class="project-content">
+                <h3>Eye of Cascade</h3>
+                <p>
+                  エージェント実行セッションとコード変遷を可視化する監視ダッシュボード。
+                </p>
+                <div class="project-tags">
+                  <span class="tag">Next.js 16</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Vitest</span>
+                  <span class="tag">Zod</span>
+                </div>
+                <span class="project-link is-disabled">source -- private</span>
               </div>
             </article>
           </div>
@@ -307,9 +249,16 @@
               </div>
               <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                ></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">send_packet()</button>
+              <button type="submit" class="btn btn-primary">
+                send_packet()
+              </button>
             </form>
           </div>
         </div>
@@ -319,7 +268,12 @@
     <footer class="footer">
       <div class="container footer-inner">
         <p>reo. // Engineer</p>
-        <a href="https://github.com/rE09o1v" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a
+          href="https://github.com/rE09o1v"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >
       </div>
     </footer>
 
