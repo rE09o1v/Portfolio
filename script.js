@@ -612,6 +612,7 @@ const initXAvatar = () => {
   if (!img) return;
 
   const frame = img.closest(".hero-avatar");
+  const badge = img.closest(".hero-avatar-badge");
   const candidates = [
     "https://unavatar.io/x/r3o_caffeine",
     "https://unavatar.io/twitter/r3o_caffeine",
@@ -621,6 +622,7 @@ const initXAvatar = () => {
   const tryNext = () => {
     if (idx >= candidates.length) {
       frame?.classList.add("is-hidden");
+      badge?.classList.add("is-hidden");
       return;
     }
     const url = `${candidates[idx]}?v=${Date.now()}`;

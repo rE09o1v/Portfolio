@@ -242,6 +242,7 @@ footer {
   box-shadow: var(--shadow);
   border-radius: 1rem;
   padding: 2.2rem;
+  position: relative;
 }
 
 .status-chip {
@@ -264,25 +265,32 @@ footer {
   color: var(--neon-strong);
   margin-bottom: 0.8rem;
   text-shadow: 0 0 12px rgba(118, 255, 190, 0.5);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
 }
 
-.hero-title-text {
-  display: inline-block;
+.hero-avatar-badge {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: inline-flex;
+  text-decoration: none;
+  border-radius: 16px;
 }
 
 .hero-avatar {
   position: relative;
-  width: clamp(44px, 6vw, 58px);
-  height: clamp(44px, 6vw, 58px);
+  width: clamp(42px, 5vw, 52px);
+  height: clamp(42px, 5vw, 52px);
   border-radius: 14px;
   border: 1px solid rgba(118, 255, 190, 0.5);
   background: rgba(2, 10, 7, 0.85);
   box-shadow: 0 0 20px rgba(118, 255, 190, 0.18);
   overflow: hidden;
   flex: 0 0 auto;
+}
+
+.hero-avatar-badge:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(67, 222, 149, 0.28);
 }
 
 .hero-avatar::before {
@@ -315,11 +323,15 @@ footer {
   pointer-events: none;
 }
 
-.hero-title:hover .hero-avatar-glow {
+.hero-avatar-badge:hover .hero-avatar-glow {
   opacity: 1;
 }
 
 .hero-avatar.is-hidden {
+  display: none;
+}
+
+.hero-avatar-badge.is-hidden {
   display: none;
 }
 
