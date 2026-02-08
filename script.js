@@ -607,3 +607,33 @@ initLab();
 initLogs();
 initCommandPalette();
 
+const initXAvatar = () => {
+  const img = document.querySelector("[data-x-avatar]");
+  if (!img) return;
+
+  const frame = img.closest(".hero-avatar");
+  const candidates = [
+    "https://unavatar.io/x/r3o_caffeine",
+    "https://unavatar.io/twitter/r3o_caffeine",
+  ];
+
+  let idx = 0;
+  const tryNext = () => {
+    if (idx >= candidates.length) {
+      frame?.classList.add("is-hidden");
+      return;
+    }
+    const url = `${candidates[idx]}?v=${Date.now()}`;
+    idx += 1;
+    img.src = url;
+  };
+
+  img.addEventListener("error", tryNext);
+  img.addEventListener("load", () => {
+    // no-op: keep the frame visible
+  });
+
+  tryNext();
+};
+
+initXAvatar();
