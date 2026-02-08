@@ -54,6 +54,7 @@ open index.html
 2. **About** - 自己紹介とスキル
 3. **Projects** - プロジェクト作品
 4. **Contact** - お問い合わせ
+5. **Blog** - 記事一覧（Markdownで投稿）
 
 ## 🔧 カスタマイズ
 
@@ -96,4 +97,10 @@ MIT License
 
 ---
 
-**Happy Coding! 🎉**
+## ✍️ ブログ投稿（GitHub Pages / Jekyll）
+
+GitHub PagesはJekyllが標準で動くため、Markdownで記事を書けます。
+
+1. `_posts/` にファイルを追加（例: `2026-02-08-welcome.md`）
+2. 先頭にfront matterを付ける（`title` / `description` / `tags`など）
+3. `blog/` に一覧が自動で出ます

@@ -407,6 +407,14 @@ const initCommandPalette = () => {
       run: () => go("logs.html"),
     },
     {
+      id: "open-blog",
+      title: "Open: Blog",
+      sub: "記事一覧",
+      kbd: "B",
+      keywords: "blog posts",
+      run: () => go("blog/"),
+    },
+    {
       id: "open-x",
       title: "Open: X",
       sub: "@r3o_caffeine",

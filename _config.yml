@@ -1,0 +1,19 @@
+title: "reo. | Portfolio"
+description: "reo.のポートフォリオ / ブログ"
+lang: ja
+timezone: Asia/Tokyo
+
+# GitHub Pages(Jekyll)で動く範囲の設定のみ使用
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+exclude:
+  - node_modules
+  - vendor

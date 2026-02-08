@@ -1,0 +1,35 @@
+---
+layout: blog
+title: Blog
+description: "制作ログと学びのメモ"
+---
+
+<h2 class="section-title reveal">Posts.ls</h2>
+
+<div class="blog-list">
+  {% assign base = site.github.baseurl | default: site.baseurl | default: "" %}
+  {% for post in site.posts %}
+    <a class="blog-card reveal" href="{{ base }}{{ post.url }}">
+      <div class="blog-card-top">
+        <span class="blog-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        {% if post.tags %}
+          <span class="blog-tags">{{ post.tags | join: " / " }}</span>
+        {% endif %}
+      </div>
+      <div class="blog-card-title">{{ post.title }}</div>
+      {% if post.description %}
+        <div class="blog-card-sub">{{ post.description }}</div>
+      {% else %}
+        <div class="blog-card-sub">{{ post.excerpt | strip_html | strip_newlines | truncate: 120 }}</div>
+      {% endif %}
+    </a>
+  {% endfor %}
+
+  {% if site.posts.size == 0 %}
+    <div class="panel reveal">
+      <h3>No posts</h3>
+      <p class="muted">`_posts/` に Markdown を追加するとここに出ます。</p>
+    </div>
+  {% endif %}
+</div>
+
