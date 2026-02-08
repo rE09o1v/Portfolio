@@ -347,14 +347,60 @@ const initCommandPalette = () => {
   let filtered = [];
   let lastFocus = null;
 
-  const page = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  const isIndex = page === "" || page === "index.html";
+  // GitHub Pages / Jekyll blog creates nested paths like /blog/ or /blog/yyyy/mm/dd/title/.
+  // Command palette navigation must resolve from the site root (not from the current directory).
+  const getSiteRootUrl = () => {
+    const scriptEl =
+      document.currentScript ||
+      document.querySelector('script[src$="/script.js"], script[src$="script.js"], script[src*="script.js"]');
+
+    // Prefer the resolved absolute URL of script.js. This works for http(s) and file://.
+    if (scriptEl && scriptEl.src) {
+      try {
+        return new URL(".", scriptEl.src);
+      } catch {
+        // ignore and fallback
+      }
+    }
+
+    // Fallback: assume current origin + "/". For file://, this may not be meaningful, but it keeps behavior sane.
+    try {
+      return new URL("/", window.location.href);
+    } catch {
+      return null;
+    }
+  };
+
+  const siteRootUrl = getSiteRootUrl();
+
+  const toSiteUrl = (href) => {
+    const value = String(href || "");
+    if (!value) return value;
+
+    // Keep hash-only navigation within the current page.
+    if (value.startsWith("#")) return value;
+
+    // External links (http:, https:, mailto:, etc.) should remain untouched.
+    if (/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(value)) return value;
+
+    // Treat leading "/" as an origin-relative path; normalize to site-root relative.
+    const clean = value.replace(/^\//, "");
+    if (!siteRootUrl) return clean;
+
+    try {
+      return new URL(clean, siteRootUrl).toString();
+    } catch {
+      return clean;
+    }
+  };
+
+  const isIndex = !!document.getElementById("home");
 
   const go = (href) => {
     if (href.startsWith("#")) {
       if (scrollToSection(href)) return;
     }
-    window.location.href = href;
+    window.location.href = toSiteUrl(href);
   };
 
   const commands = [
