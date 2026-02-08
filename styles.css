@@ -510,6 +510,21 @@ footer {
   color: var(--neon-strong);
 }
 
+.contact-methods a {
+  color: var(--neon-strong);
+  text-decoration: none;
+}
+
+.contact-methods a:hover {
+  text-shadow: 0 0 14px rgba(118, 255, 190, 0.35);
+}
+
+.footer-links {
+  display: inline-flex;
+  gap: 0.9rem;
+  align-items: center;
+}
+
 .contact-form h3 {
   margin-bottom: 1rem;
 }
