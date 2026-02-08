@@ -60,6 +60,24 @@ body::after {
   mask-image: radial-gradient(circle at center, #000 34%, transparent 90%);
 }
 
+body.scanlines-off::before {
+  opacity: 0;
+}
+
+body.grid-off::after {
+  opacity: 0;
+}
+
+body.bloom-off .hero-content,
+body.bloom-off .terminal-window,
+body.bloom-off .panel {
+  box-shadow: none;
+}
+
+body.sudo-vibe {
+  filter: saturate(1.15) contrast(1.06);
+}
+
 main,
 header,
 footer {
@@ -166,8 +184,49 @@ footer {
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
+.cmdk-trigger {
+  border: 1px solid rgba(118, 255, 190, 0.45);
+  border-radius: 999px;
+  background: rgba(2, 10, 7, 0.7);
+  color: var(--neon-strong);
+  font-family: "Share Tech Mono", monospace;
+  letter-spacing: 0.08em;
+  padding: 0.42rem 0.65rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.cmdk-trigger:hover {
+  transform: translateY(-1px);
+  border-color: rgba(118, 255, 190, 0.75);
+  box-shadow: 0 0 18px rgba(118, 255, 190, 0.25);
+}
+
+.cmdk-trigger:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(67, 222, 149, 0.25);
+}
+
 .hero {
   padding: 125px 0 68px;
+}
+
+.page-hero {
+  padding-top: 110px;
+}
+
+.page-hero-inner {
+  background: linear-gradient(145deg, rgba(9, 20, 17, 0.88), rgba(7, 13, 11, 0.78));
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.muted {
+  color: #a7e6c3;
+  opacity: 0.92;
 }
 
 .hero-layout {
@@ -579,6 +638,314 @@ footer {
   text-decoration: none;
 }
 
+.cmdk {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+  z-index: 100;
+}
+
+.cmdk.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cmdk-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(6px);
+}
+
+.cmdk-dialog {
+  width: min(720px, calc(100% - 2rem));
+  border: 1px solid rgba(118, 255, 190, 0.38);
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(1, 12, 8, 0.92) 0%, rgba(2, 10, 7, 0.88) 100%);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba(67, 222, 149, 0.18);
+  position: relative;
+  padding: 1rem;
+}
+
+.cmdk-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.cmdk-title {
+  font-family: "Share Tech Mono", monospace;
+  color: var(--neon-strong);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.cmdk-hint {
+  font-family: "Share Tech Mono", monospace;
+  color: var(--text-sub);
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+.cmdk-input-wrap {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid rgba(118, 255, 190, 0.28);
+  border-radius: 0.7rem;
+  padding: 0.65rem 0.75rem;
+  background: rgba(3, 12, 9, 0.9);
+  margin-bottom: 0.75rem;
+}
+
+.cmdk-prompt {
+  font-family: "Share Tech Mono", monospace;
+  color: var(--neon-strong);
+  opacity: 0.9;
+}
+
+.cmdk-input {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--text-main);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.cmdk-list {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+  max-height: min(46vh, 420px);
+  overflow: auto;
+  padding-right: 0.25rem;
+}
+
+.cmdk-item {
+  border: 1px solid rgba(118, 255, 190, 0.16);
+  border-radius: 0.85rem;
+  background: rgba(8, 18, 14, 0.72);
+  padding: 0.75rem 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.cmdk-item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(118, 255, 190, 0.45);
+  box-shadow: 0 0 18px rgba(118, 255, 190, 0.16);
+}
+
+.cmdk-item[aria-selected="true"] {
+  border-color: rgba(118, 255, 190, 0.62);
+  box-shadow: 0 0 22px rgba(118, 255, 190, 0.22);
+}
+
+.cmdk-item-title {
+  font-family: "Share Tech Mono", monospace;
+  color: var(--text-main);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cmdk-item-sub {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  margin-top: 0.18rem;
+}
+
+.cmdk-kbd {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--neon-strong);
+  opacity: 0.85;
+}
+
+.lab-form {
+  margin-top: 0.9rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.lab-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--text-sub);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lab-input,
+.lab-textarea {
+  width: 100%;
+  border: 1px solid rgba(118, 255, 190, 0.35);
+  border-radius: 0.6rem;
+  background: rgba(2, 10, 7, 0.92);
+  color: var(--text-main);
+  padding: 0.65rem 0.75rem;
+  font-family: "Share Tech Mono", monospace;
+  resize: vertical;
+}
+
+.lab-output {
+  width: 100%;
+  text-align: left;
+  border: 1px dashed rgba(118, 255, 190, 0.35);
+  border-radius: 0.6rem;
+  background: rgba(2, 10, 7, 0.72);
+  color: #b7f8d8;
+  padding: 0.75rem;
+  font-family: "Share Tech Mono", monospace;
+  cursor: copy;
+}
+
+.lab-output:hover {
+  border-color: rgba(118, 255, 190, 0.62);
+  box-shadow: 0 0 18px rgba(118, 255, 190, 0.14);
+}
+
+.lab-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.lab-btn {
+  flex: 0 0 auto;
+}
+
+.lab-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.55rem;
+}
+
+.lab-toggles {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: "Share Tech Mono", monospace;
+  color: var(--text-main);
+}
+
+.toggle input {
+  accent-color: var(--neon-strong);
+}
+
+.terminal-mini {
+  margin-top: 0.9rem;
+  border: 1px solid rgba(118, 255, 190, 0.2);
+  border-radius: 0.9rem;
+  padding: 0.9rem;
+  background: rgba(1, 12, 8, 0.65);
+  font-family: "Share Tech Mono", monospace;
+}
+
+.terminal-mini p {
+  margin-bottom: 0.55rem;
+}
+
+.logs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.logbox {
+  margin-top: 0.85rem;
+  border: 1px solid rgba(118, 255, 190, 0.2);
+  border-radius: 0.9rem;
+  padding: 0.85rem;
+  background: rgba(1, 12, 8, 0.65);
+  font-family: "Share Tech Mono", monospace;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.logline {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+
+.ts {
+  color: var(--text-sub);
+  font-size: 0.8rem;
+  opacity: 0.95;
+}
+
+.lvl {
+  font-size: 0.75rem;
+  padding: 0.08rem 0.42rem;
+  border-radius: 999px;
+  border: 1px solid rgba(118, 255, 190, 0.25);
+  color: var(--neon-strong);
+}
+
+.lvl.ok {
+  border-color: rgba(118, 255, 190, 0.25);
+}
+
+.lvl.warn {
+  border-color: rgba(255, 209, 102, 0.35);
+  color: #ffd166;
+}
+
+.msg {
+  color: #b7f8d8;
+  font-size: 0.88rem;
+}
+
+.fingerprint {
+  margin-top: 0.85rem;
+  border: 1px solid rgba(118, 255, 190, 0.2);
+  border-radius: 0.9rem;
+  padding: 0.85rem;
+  background: rgba(1, 12, 8, 0.65);
+}
+
+.finger-label {
+  font-family: "Share Tech Mono", monospace;
+  color: var(--text-sub);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.finger-value {
+  margin-top: 0.35rem;
+  font-family: "Share Tech Mono", monospace;
+  color: var(--neon-strong);
+  word-break: break-all;
+}
+
+.linkgrid {
+  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(16px);
@@ -616,6 +983,10 @@ footer {
 @media (max-width: 760px) {
   .nav-toggle {
     display: block;
+  }
+
+  .cmdk-trigger {
+    padding: 0.38rem 0.55rem;
   }
 
   .nav-menu {
@@ -656,6 +1027,11 @@ footer {
 
   .about-grid,
   .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-split,
+  .logs-grid {
     grid-template-columns: 1fr;
   }
 }

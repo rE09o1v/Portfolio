@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reo. | Logs</title>
+    <meta name="description" content="reo.のログ。プロジェクトと制作の軌跡。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;400;500;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <a href="index.html#home" class="nav-brand">root@reo:~/logs$</a>
+        <ul class="nav-menu">
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+          <li><a href="lab.html" class="nav-link">Lab</a></li>
+          <li><a href="logs.html" class="nav-link active" aria-current="page">Logs</a></li>
+        </ul>
+        <button
+          class="cmdk-trigger"
+          type="button"
+          aria-label="コマンドパレットを開く (Ctrl+K または /)"
+          data-cmdk-open
+        >
+          ⌘K
+        </button>
+        <button class="nav-toggle" type="button" aria-label="メニューを開く">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero page-hero">
+        <div class="container">
+          <div class="page-hero-inner reveal">
+            <p class="status-chip">[ AUDIT TRAIL ]</p>
+            <h1 class="hero-title">Logs<span class="cursor">_</span></h1>
+            <p class="hero-description">
+              進捗や改善のログを残す。公開できる範囲で、変化の履歴を置いていく。
+            </p>
+            <div class="hero-buttons">
+              <a href="#timeline" class="btn btn-primary">./open_timeline</a>
+              <a href="lab.html" class="btn btn-secondary">./open_lab</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="timeline" class="projects">
+        <div class="container">
+          <h2 class="section-title reveal">Timeline.txt</h2>
+          <div class="logs-grid">
+            <article class="panel reveal">
+              <h3>Project Signals</h3>
+              <div class="logbox" aria-label="プロジェクトのログ">
+                <div class="logline">
+                  <span class="ts">2026-02</span>
+                  <span class="lvl ok">INFO</span>
+                  <span class="msg">transport_daily_report: PDF export + maps workflow refinement</span>
+                </div>
+                <div class="logline">
+                  <span class="ts">2026-01</span>
+                  <span class="lvl ok">INFO</span>
+                  <span class="msg">c-orc: TUI orchestration + worktree isolation</span>
+                </div>
+                <div class="logline">
+                  <span class="ts">2026-02</span>
+                  <span class="lvl warn">WARN</span>
+                  <span class="msg">eye-of-cascade: added tests (vitest) and session parsing hardening</span>
+                </div>
+                <div class="logline">
+                  <span class="ts">now</span>
+                  <span class="lvl ok">INFO</span>
+                  <span class="msg">portfolio: multi-page expansion + cmd palette</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel reveal">
+              <h3>Build Fingerprint</h3>
+              <p class="muted">ページを開くたびに「ハッシュっぽい」指紋を生成して表示します。</p>
+              <div class="fingerprint">
+                <p class="finger-label">session_id</p>
+                <p class="finger-value" data-fingerprint></p>
+              </div>
+              <div class="lab-row">
+                <button class="btn btn-primary lab-btn" type="button" data-fingerprint-refresh>
+                  regen()
+                </button>
+                <button class="btn btn-secondary lab-btn" type="button" data-lab-copy data-fingerprint-copy>
+                  copy()
+                </button>
+              </div>
+            </article>
+
+            <article class="panel reveal">
+              <h3>Operating Rules</h3>
+              <p class="muted">
+                速さと品質は両立する。崩れる前に直す。小さく直して、積み重ねる。
+              </p>
+              <div class="terminal-mini">
+                <p><span class="prompt">ops@reo:~$</span> cat principles</p>
+                <p class="terminal-result">fix roots · test behaviors · keep it observable</p>
+                <p><span class="prompt">ops@reo:~$</span> status</p>
+                <p class="terminal-result">green</p>
+              </div>
+            </article>
+
+            <article class="panel reveal">
+              <h3>Links</h3>
+              <div class="linkgrid">
+                <a class="project-link" href="index.html#projects">Open projects</a>
+                <a class="project-link" href="lab.html">Open lab</a>
+                <a class="project-link" href="https://github.com/rE09o1v" target="_blank" rel="noopener noreferrer"
+                  >GitHub</a
+                >
+                <a class="project-link" href="https://x.com/r3o_caffeine" target="_blank" rel="noopener noreferrer"
+                  >X</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>reo. // Logs</p>
+        <div class="footer-links">
+          <a href="index.html#home">Back</a>
+          <a href="lab.html">Lab</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="cmdk" id="cmdk" aria-hidden="true">
+      <div class="cmdk-backdrop" data-cmdk-close></div>
+      <div class="cmdk-dialog" role="dialog" aria-modal="true" aria-labelledby="cmdk-title">
+        <div class="cmdk-head">
+          <p class="cmdk-title" id="cmdk-title">Command Palette</p>
+          <p class="cmdk-hint">Enter to run · Esc to close</p>
+        </div>
+        <div class="cmdk-input-wrap">
+          <span class="cmdk-prompt">&gt;</span>
+          <input
+            id="cmdk-input"
+            class="cmdk-input"
+            type="text"
+            inputmode="search"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Type a command… (ex: timeline, home, lab)"
+          />
+        </div>
+        <ul class="cmdk-list" id="cmdk-list" role="listbox" aria-label="Commands"></ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

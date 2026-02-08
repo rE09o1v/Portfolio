@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reo. | Lab</title>
+    <meta name="description" content="reo.の実験場 (Lab)。遊び心のある小さなツール集。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;400;500;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <a href="index.html#home" class="nav-brand">root@reo:~/lab$</a>
+        <ul class="nav-menu">
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+          <li><a href="lab.html" class="nav-link active" aria-current="page">Lab</a></li>
+          <li><a href="logs.html" class="nav-link">Logs</a></li>
+        </ul>
+        <button
+          class="cmdk-trigger"
+          type="button"
+          aria-label="コマンドパレットを開く (Ctrl+K または /)"
+          data-cmdk-open
+        >
+          ⌘K
+        </button>
+        <button class="nav-toggle" type="button" aria-label="メニューを開く">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero page-hero">
+        <div class="container">
+          <div class="page-hero-inner reveal">
+            <p class="status-chip">[ LAB MODE ]</p>
+            <h1 class="hero-title">Lab<span class="cursor">_</span></h1>
+            <p class="hero-description">
+              小さな実験を置く場所。Ctrl+K でコマンドパレット、/ でも起動します。
+            </p>
+            <div class="hero-buttons">
+              <a href="#tools" class="btn btn-primary">./open_tools</a>
+              <a href="index.html#projects" class="btn btn-secondary">./back_to_projects</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tools" class="about">
+        <div class="container">
+          <h2 class="section-title reveal">Tools.dev</h2>
+          <div class="about-grid">
+            <article class="panel reveal">
+              <h3>Glitch Forge</h3>
+              <p class="muted">
+                文字列を軽く崩して、サイバーっぽい見出しを作る。出力はクリックでコピー。
+              </p>
+              <div class="lab-form">
+                <label class="lab-label" for="glitchInput">Input</label>
+                <input
+                  id="glitchInput"
+                  class="lab-input"
+                  type="text"
+                  value="reo."
+                  data-lab-glitch-input
+                />
+                <div class="lab-row">
+                  <button class="btn btn-primary lab-btn" type="button" data-lab-glitch-run>
+                    glitch()
+                  </button>
+                  <button class="btn btn-secondary lab-btn" type="button" data-lab-glitch-reset>
+                    reset()
+                  </button>
+                </div>
+                <label class="lab-label" for="glitchOutput">Output</label>
+                <button
+                  id="glitchOutput"
+                  class="lab-output"
+                  type="button"
+                  data-lab-copy
+                  data-lab-glitch-output
+                  aria-label="出力をコピー"
+                ></button>
+              </div>
+            </article>
+
+            <article class="panel reveal">
+              <h3>Packet Encoder</h3>
+              <p class="muted">入力を hex / base64 に変換。小さな道具は仕事を早くする。</p>
+              <div class="lab-form">
+                <label class="lab-label" for="encodeInput">Input</label>
+                <textarea
+                  id="encodeInput"
+                  class="lab-textarea"
+                  rows="4"
+                  data-lab-encode-input
+                >hello, world</textarea>
+                <div class="lab-split">
+                  <div>
+                    <label class="lab-label" for="hexOutput">Hex</label>
+                    <button
+                      id="hexOutput"
+                      class="lab-output"
+                      type="button"
+                      data-lab-copy
+                      data-lab-encode-hex
+                      aria-label="Hex出力をコピー"
+                    ></button>
+                  </div>
+                  <div>
+                    <label class="lab-label" for="b64Output">Base64</label>
+                    <button
+                      id="b64Output"
+                      class="lab-output"
+                      type="button"
+                      data-lab-copy
+                      data-lab-encode-b64
+                      aria-label="Base64出力をコピー"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel reveal">
+              <h3>Ambient Switch</h3>
+              <p class="muted">演出を少しだけ変える。軽く、でも気分が変わる。</p>
+              <div class="lab-toggles">
+                <label class="toggle">
+                  <input type="checkbox" data-ambient-scanlines checked />
+                  <span>scanlines</span>
+                </label>
+                <label class="toggle">
+                  <input type="checkbox" data-ambient-grid checked />
+                  <span>grid</span>
+                </label>
+                <label class="toggle">
+                  <input type="checkbox" data-ambient-bloom checked />
+                  <span>bloom</span>
+                </label>
+                <button class="btn btn-secondary lab-btn" type="button" data-ambient-sudo>
+                  sudo vibe --boost
+                </button>
+              </div>
+            </article>
+
+            <article class="panel reveal">
+              <h3>Notes</h3>
+              <p class="muted">
+                こういう「小さい遊び」をサイトに仕込むと、印象に残る。実装は軽く、でも意図は強く。
+              </p>
+              <div class="terminal-mini">
+                <p><span class="prompt">lab@reo:~$</span> uptime</p>
+                <p class="terminal-result">stable · low latency · fun enabled</p>
+                <p><span class="prompt">lab@reo:~$</span> hint</p>
+                <p class="terminal-result">try typing “sudo” in the palette.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>reo. // Lab</p>
+        <div class="footer-links">
+          <a href="index.html#home">Back</a>
+          <a href="https://x.com/r3o_caffeine" target="_blank" rel="noopener noreferrer">X</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="cmdk" id="cmdk" aria-hidden="true">
+      <div class="cmdk-backdrop" data-cmdk-close></div>
+      <div class="cmdk-dialog" role="dialog" aria-modal="true" aria-labelledby="cmdk-title">
+        <div class="cmdk-head">
+          <p class="cmdk-title" id="cmdk-title">Command Palette</p>
+          <p class="cmdk-hint">Enter to run · Esc to close</p>
+        </div>
+        <div class="cmdk-input-wrap">
+          <span class="cmdk-prompt">&gt;</span>
+          <input
+            id="cmdk-input"
+            class="cmdk-input"
+            type="text"
+            inputmode="search"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Type a command… (ex: hex, sudo, home)"
+          />
+        </div>
+        <ul class="cmdk-list" id="cmdk-list" role="listbox" aria-label="Commands"></ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

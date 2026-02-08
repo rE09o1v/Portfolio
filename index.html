@@ -26,7 +26,17 @@
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="lab.html" class="nav-link">Lab</a></li>
+          <li><a href="logs.html" class="nav-link">Logs</a></li>
         </ul>
+        <button
+          class="cmdk-trigger"
+          type="button"
+          aria-label="コマンドパレットを開く (Ctrl+K または /)"
+          data-cmdk-open
+        >
+          ⌘K
+        </button>
         <button class="nav-toggle" type="button" aria-label="メニューを開く">
           <span></span>
           <span></span>
@@ -322,6 +332,29 @@
         </div>
       </div>
     </footer>
+
+    <div class="cmdk" id="cmdk" aria-hidden="true">
+      <div class="cmdk-backdrop" data-cmdk-close></div>
+      <div class="cmdk-dialog" role="dialog" aria-modal="true" aria-labelledby="cmdk-title">
+        <div class="cmdk-head">
+          <p class="cmdk-title" id="cmdk-title">Command Palette</p>
+          <p class="cmdk-hint">Enter to run · Esc to close</p>
+        </div>
+        <div class="cmdk-input-wrap">
+          <span class="cmdk-prompt">&gt;</span>
+          <input
+            id="cmdk-input"
+            class="cmdk-input"
+            type="text"
+            inputmode="search"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Type a command… (ex: projects, x, lab)"
+          />
+        </div>
+        <ul class="cmdk-list" id="cmdk-list" role="listbox" aria-label="Commands"></ul>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
