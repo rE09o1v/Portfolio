@@ -494,6 +494,11 @@ footer {
   box-shadow: 0 0 16px rgba(118, 255, 190, 0.28);
 }
 
+.project-link.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .contact-methods {
   margin-top: 0.85rem;
   display: grid;

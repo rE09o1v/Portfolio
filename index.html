@@ -41,19 +41,19 @@
           <div class="hero-content reveal">
             <p class="status-chip">[ SYSTEM ONLINE ]</p>
             <h1 class="hero-title">reo<span class="cursor">_</span></h1>
-            <p class="hero-subtitle">Engineer / Builder / Problem Solver</p>
+            <p class="hero-subtitle">Engineer / Full-stack / Automation</p>
             <p class="hero-description">
-              趣味で「あったらいいな」を高速に実装するエンジニアです。要件整理から実装、
-              改善まで一気通貫で対応し、短いサイクルで価値を出すことを重視しています。
+              C:\projects 配下の実運用プロジェクトを継続的に改善しています。最近は
+              Next.js / TypeScript、Flutter、Python の3軸で、Web・モバイル・自動化を横断して開発中です。
             </p>
             <div class="hero-buttons">
               <a href="#projects" class="btn btn-primary">./show_projects</a>
               <a href="#contact" class="btn btn-secondary">./open_contact</a>
             </div>
             <ul class="hero-meta">
-              <li><span>$ stack</span> Python / Flutter / Web</li>
-              <li><span>$ focus</span> UX, speed, maintainability</li>
-              <li><span>$ status</span> available for new builds</li>
+              <li><span>$ active_stack</span> Next.js / TypeScript / React / Flutter / Python</li>
+              <li><span>$ backend</span> FastAPI / Prisma / SQLAlchemy / PostgreSQL</li>
+              <li><span>$ infra</span> Docker / Redis / Google APIs / GitHub</li>
             </ul>
           </div>
 
@@ -67,7 +67,7 @@
               <p><span class="prompt">reo@portfolio:~$</span> cat mission.txt</p>
               <p class="terminal-result">Build useful things people actually enjoy.</p>
               <p><span class="prompt">reo@portfolio:~$</span> ls projects/</p>
-              <p class="terminal-result">industrial_calculator d_freedom better_stopwatch</p>
+              <p class="terminal-result">keystone eye-of-cascade auto-flow c-orc ...</p>
               <p><span class="prompt">reo@portfolio:~$</span> ping collaboration</p>
               <p class="terminal-result">reply in &lt; 24h</p>
             </div>
@@ -82,11 +82,11 @@
             <article class="panel reveal">
               <h3>Profile</h3>
               <p>
-                使う技術は固定せず、目的に最適な手段を選びます。仕様の曖昧さを整理して、
-                実装と同時に改善提案を返すスタイルで開発しています。
+                最近は C:\projects のローカル開発群を中心に、業務寄りのアプリと開発支援ツールを
+                並行して構築しています。要件整理から実装、検証、運用改善まで一貫して対応します。
               </p>
               <p>
-                納品速度だけでなく、後から拡張しやすい構成にすることを意識しています。
+                UI/UXだけでなく、テスト、データ設計、将来拡張を見据えた実装を重視しています。
               </p>
             </article>
 
@@ -95,38 +95,38 @@
               <div class="skills">
                 <div class="skill-item">
                   <div class="skill-head">
-                    <span>Python</span>
-                    <span>88%</span>
+                    <span>TypeScript / Next.js / React</span>
+                    <span>86%</span>
                   </div>
                   <div class="skill-bar">
-                    <div class="skill-progress" data-level="88%"></div>
+                    <div class="skill-progress" data-level="86%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-head">
+                    <span>Python / FastAPI / Automation</span>
+                    <span>84%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-level="84%"></div>
                   </div>
                 </div>
                 <div class="skill-item">
                   <div class="skill-head">
                     <span>Dart / Flutter</span>
-                    <span>76%</span>
+                    <span>79%</span>
                   </div>
                   <div class="skill-bar">
-                    <div class="skill-progress" data-level="76%"></div>
+                    <div class="skill-progress" data-level="79%"></div>
                   </div>
                 </div>
                 <div class="skill-item">
                   <div class="skill-head">
-                    <span>HTML / CSS / JavaScript</span>
-                    <span>72%</span>
+                    <span>Prisma / SQL / Redis / Docker</span>
+                    <span>74%</span>
                   </div>
                   <div class="skill-bar">
-                    <div class="skill-progress" data-level="72%"></div>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <div class="skill-head">
-                    <span>Git / GitHub</span>
-                    <span>81%</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-progress" data-level="81%"></div>
+                    <div class="skill-progress" data-level="74%"></div>
                   </div>
                 </div>
               </div>
@@ -142,18 +142,57 @@
             <article class="project-card reveal">
               <div class="project-head">
                 <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                <p>industrial_calculator</p>
+                <p>keystone</p>
               </div>
               <div class="project-content">
-                <h3>Industrial Calculator</h3>
-                <p>産業用計算機アプリ。現場で使う計算処理をシンプルなUIで提供します。</p>
+                <h3>Keystone (CausalAct)</h3>
+                <p>因果グラフでタスク実行を支援する Web アプリ。可視化と行動実行を結びつける設計。</p>
                 <div class="project-tags">
-                  <span class="tag">Dart</span>
-                  <span class="tag">Flutter</span>
-                  <span class="tag">Mobile</span>
+                  <span class="tag">Next.js 16</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">React Flow</span>
+                  <span class="tag">Prisma</span>
+                  <span class="tag">Zustand</span>
+                </div>
+                <span class="project-link is-disabled">local --private</span>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-head">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <p>eye-of-cascade</p>
+              </div>
+              <div class="project-content">
+                <h3>Eye of Cascade</h3>
+                <p>エージェント実行セッションとコード変遷を可視化する監視ダッシュボード。</p>
+                <div class="project-tags">
+                  <span class="tag">Next.js 16</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Vitest</span>
+                  <span class="tag">Zod</span>
+                </div>
+                <span class="project-link is-disabled">local --private</span>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-head">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <p>auto-flow</p>
+              </div>
+              <div class="project-content">
+                <h3>AutoFlow</h3>
+                <p>Discord DM 起点でタスク分解と2週間スケジューリングを行う自動運用基盤。</p>
+                <div class="project-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">FastAPI</span>
+                  <span class="tag">Celery + Redis</span>
+                  <span class="tag">Next.js</span>
+                  <span class="tag">Docker</span>
                 </div>
                 <a
-                  href="https://github.com/rE09o1v/industrial_calculator"
+                  href="https://github.com/Daiki-Iwashita/auto-flow"
                   class="project-link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -166,18 +205,19 @@
             <article class="project-card reveal">
               <div class="project-head">
                 <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                <p>d.freedom</p>
+                <p>NEO_SwimmyTool</p>
               </div>
               <div class="project-content">
-                <h3>D.Freedom</h3>
-                <p>図面屋事業のコーポレートサイト。情報導線と信頼感を重視して構築。</p>
+                <h3>NEO SwimmyTool</h3>
+                <p>プログラミング教室向け生徒管理システム。授業記録とDrive連携を統合。</p>
                 <div class="project-tags">
-                  <span class="tag">HTML</span>
-                  <span class="tag">CSS</span>
-                  <span class="tag">Website</span>
+                  <span class="tag">React 18</span>
+                  <span class="tag">MUI</span>
+                  <span class="tag">Chart.js</span>
+                  <span class="tag">Google Drive API</span>
                 </div>
                 <a
-                  href="https://github.com/rE09o1v/D.Freedom"
+                  href="https://github.com/rE09o1v/NEO_SwimmyTool"
                   class="project-link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -190,18 +230,45 @@
             <article class="project-card reveal">
               <div class="project-head">
                 <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                <p>better_stopwatch</p>
+                <p>transport_daily_report</p>
               </div>
               <div class="project-content">
-                <h3>Better StopWatch</h3>
-                <p>使いやすさを改善したストップウォッチアプリ。操作レスポンスを最適化。</p>
+                <h3>らくレポ！</h3>
+                <p>運送業向け日報アプリ。位置情報、帳票PDF、共有までをモバイルで完結。</p>
                 <div class="project-tags">
-                  <span class="tag">Dart</span>
                   <span class="tag">Flutter</span>
-                  <span class="tag">Utility</span>
+                  <span class="tag">Dart</span>
+                  <span class="tag">Google Maps</span>
+                  <span class="tag">PDF Export</span>
                 </div>
                 <a
-                  href="https://github.com/rE09o1v/better_StopWatch"
+                  href="https://github.com/rE09o1v/transport_daily_report"
+                  class="project-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  view --source
+                </a>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-head">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <p>c-orc</p>
+              </div>
+              <div class="project-content">
+                <h3>C-Orc</h3>
+                <p>CLI型AIコーディングを並列実行する TUI オーケストレーター。</p>
+                <div class="project-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">Textual</span>
+                  <span class="tag">LangGraph</span>
+                  <span class="tag">Pydantic</span>
+                  <span class="tag">SQLite</span>
+                </div>
+                <a
+                  href="https://github.com/Daiki-Iwashita/c-orc"
                   class="project-link"
                   target="_blank"
                   rel="noopener noreferrer"
