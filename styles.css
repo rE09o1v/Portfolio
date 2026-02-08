@@ -1110,6 +1110,31 @@ footer {
   color: var(--neon-strong);
 }
 
+.post-body a {
+  color: var(--neon-strong);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba(118, 255, 190, 0.55);
+  border-radius: 0.25rem;
+  padding: 0 0.12rem;
+  transition: color 0.18s ease, text-decoration-color 0.18s ease, box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.post-body a:hover {
+  color: #d9ffe8;
+  text-decoration-color: rgba(118, 255, 190, 0.9);
+  background-color: rgba(118, 255, 190, 0.08);
+  box-shadow: 0 0 0 2px rgba(118, 255, 190, 0.12);
+}
+
+.post-body a:focus-visible {
+  outline: none;
+  text-decoration-color: rgba(118, 255, 190, 0.95);
+  box-shadow: 0 0 0 2px rgba(67, 222, 149, 0.28);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(16px);
