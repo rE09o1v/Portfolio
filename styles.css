@@ -278,9 +278,9 @@ footer {
 
 .hero-avatar {
   position: relative;
-  width: clamp(42px, 5vw, 52px);
-  height: clamp(42px, 5vw, 52px);
-  border-radius: 14px;
+  width: clamp(54px, 6.2vw, 72px);
+  height: clamp(54px, 6.2vw, 72px);
+  border-radius: 18px;
   border: 1px solid rgba(118, 255, 190, 0.5);
   background: rgba(2, 10, 7, 0.85);
   box-shadow: 0 0 20px rgba(118, 255, 190, 0.18);
