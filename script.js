@@ -1,217 +1,148 @@
-// DOM要素の取得
+const header = document.querySelector('.header');
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
+const skillBars = document.querySelectorAll('.skill-progress');
 const contactForm = document.getElementById('contactForm');
 
-// モバイルメニューの切り替え
-navToggle.addEventListener('click', () => {
+const closeMobileMenu = () => {
+  navMenu?.classList.remove('active');
+  navToggle?.classList.remove('active');
+};
+
+if (navToggle && navMenu) {
+  navToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     navToggle.classList.toggle('active');
-});
-
-// ナビゲーションリンクのスムーススクロール
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-
-        if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-
-        // モバイルメニューを閉じる
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-    });
-});
-
-// スクロール時のヘッダーの背景変更
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-    } else {
-        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-    }
-});
-
-// スキルバーのアニメーション
-const skillBars = document.querySelectorAll('.skill-progress');
-
-const animateSkillBars = () => {
-    skillBars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0%';
-
-        setTimeout(() => {
-            bar.style.width = width;
-        }, 100);
-    });
-};
-
-// Intersection Observer for skill bars
-const skillsSection = document.querySelector('.skills');
-if (skillsSection) {
-    const skillsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateSkillBars();
-                skillsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    skillsObserver.observe(skillsSection);
+  });
 }
 
-// プロジェクトカードのホバーエフェクト
-const projectCards = document.querySelectorAll('.project-card');
+navLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const targetId = link.getAttribute('href');
+    if (!targetId || !targetId.startsWith('#')) {
+      return;
+    }
 
-projectCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px)';
-    });
+    const targetSection = document.querySelector(targetId);
+    if (!targetSection) {
+      return;
+    }
 
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
-    });
+    event.preventDefault();
+    const offset = (header?.offsetHeight || 0) + 12;
+    const top = targetSection.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.scrollTo({ top, behavior: 'smooth' });
+    closeMobileMenu();
+  });
 });
 
-// コンタクトフォームの処理
+const updateHeaderState = () => {
+  if (!header) {
+    return;
+  }
+
+  header.classList.toggle('scrolled', window.scrollY > 30);
+};
+
+updateHeaderState();
+window.addEventListener('scroll', updateHeaderState, { passive: true });
+
+if (skillBars.length > 0) {
+  const skillObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        const bar = entry.target;
+        const level = bar.getAttribute('data-level') || '0%';
+        bar.style.width = level;
+        skillObserver.unobserve(bar);
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  skillBars.forEach((bar) => {
+    bar.style.width = '0%';
+    skillObserver.observe(bar);
+  });
+}
+
+const revealTargets = document.querySelectorAll('.reveal');
+if (revealTargets.length > 0) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.16 }
+  );
+
+  revealTargets.forEach((target) => revealObserver.observe(target));
+}
+
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-        const formData = new FormData(contactForm);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
+    const formData = new FormData(contactForm);
+    const name = String(formData.get('name') || '').trim();
+    const email = String(formData.get('email') || '').trim();
+    const message = String(formData.get('message') || '').trim();
 
-        // フォームのバリデーション
-        if (!name || !email || !message) {
-            alert('すべての項目を入力してください。');
-            return;
-        }
+    if (!name || !email || !message) {
+      alert('すべての項目を入力してください。');
+      return;
+    }
 
-        // メールアドレスの形式チェック
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('正しいメールアドレスを入力してください。');
-            return;
-        }
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert('正しいメールアドレスを入力してください。');
+      return;
+    }
 
-        // 送信処理（実際の実装ではサーバーサイドに送信）
-        console.log('送信データ:', { name, email, message });
-
-        // 送信成功のメッセージ
-        alert('お問い合わせありがとうございます。\n内容を確認次第、ご連絡いたします。');
-
-        // フォームをリセット
-        contactForm.reset();
-    });
+    console.log('contact payload', { name, email, message });
+    alert('メッセージを受け取りました。ありがとうございます。');
+    contactForm.reset();
+  });
 }
 
-// ページ読み込み時のアニメーション
-window.addEventListener('load', () => {
-    // ページ全体のフェードイン
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease-in';
-
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
-});
-
-// スクロールアニメーション
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// アニメーション対象の要素を監視
-const animatedElements = document.querySelectorAll('.project-card, .about-content, .contact-content');
-animatedElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-});
-
-// 現在のセクションに応じたナビゲーションのアクティブ状態
 const sections = document.querySelectorAll('section[id]');
-const navItems = document.querySelectorAll('.nav-link');
+window.addEventListener(
+  'scroll',
+  () => {
+    let currentId = '';
 
-window.addEventListener('scroll', () => {
-    let current = '';
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const scrollY = window.scrollY + (header?.offsetHeight || 0) + 28;
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-
-        if (window.scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        currentId = section.id;
+      }
     });
 
-    navItems.forEach(item => {
-        item.classList.remove('active');
-        if (item.getAttribute('href') === `#${current}`) {
-            item.classList.add('active');
-        }
+    navLinks.forEach((link) => {
+      const isActive = link.getAttribute('href') === `#${currentId}`;
+      link.classList.toggle('active', isActive);
     });
+  },
+  { passive: true }
+);
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeMobileMenu();
+  }
 });
-
-// モバイルメニューのスタイル追加
-const style = document.createElement('style');
-style.textContent = `
-    @media (max-width: 768px) {
-        .nav-menu {
-            position: fixed;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            flex-direction: column;
-            padding: 2rem;
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-menu.active {
-            transform: translateY(0);
-        }
-        
-        .nav-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .nav-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .nav-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-        
-        .nav-link.active {
-            color: #06b6d4;
-            font-weight: 600;
-        }
-    }
-`;
-document.head.appendChild(style);
