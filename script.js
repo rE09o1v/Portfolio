@@ -528,18 +528,27 @@ const initCommandPalette = () => {
     if (!active) return;
 
     const pad = 8;
-    const itemTop = active.offsetTop;
-    const itemBottom = itemTop + active.offsetHeight;
-    const viewTop = list.scrollTop;
-    const viewBottom = viewTop + list.clientHeight;
+    const listRect = list.getBoundingClientRect();
+    const itemRect = active.getBoundingClientRect();
 
-    if (itemTop - pad < viewTop) {
-      list.scrollTop = Math.max(0, itemTop - pad);
+    // Use rect-based adjustment because offsetTop can be unreliable with grid layouts.
+    if (itemRect.top < listRect.top + pad) {
+      const delta = listRect.top + pad - itemRect.top;
+      list.scrollTop = Math.max(0, list.scrollTop - delta);
       return;
     }
 
-    if (itemBottom + pad > viewBottom) {
-      list.scrollTop = Math.max(0, itemBottom + pad - list.clientHeight);
+    if (itemRect.bottom > listRect.bottom - pad) {
+      const delta = itemRect.bottom - (listRect.bottom - pad);
+      list.scrollTop = Math.max(0, list.scrollTop + delta);
+      return;
+    }
+
+    // Fallback: if the browser still considers it out-of-view due to rounding, force nearest.
+    try {
+      active.scrollIntoView({ block: "nearest", inline: "nearest" });
+    } catch {
+      // no-op
     }
   };
 
@@ -580,7 +589,7 @@ const initCommandPalette = () => {
     });
 
     // Keep the selected item visible when navigating with ArrowUp/ArrowDown.
-    scrollSelectionIntoView();
+    window.requestAnimationFrame(scrollSelectionIntoView);
   };
 
   const update = () => {
