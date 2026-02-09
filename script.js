@@ -522,6 +522,27 @@ const initCommandPalette = () => {
       .every((token) => hay.includes(token));
   };
 
+  const scrollSelectionIntoView = () => {
+    const items = Array.from(list.querySelectorAll(".cmdk-item"));
+    const active = items[selectedIndex];
+    if (!active) return;
+
+    const pad = 8;
+    const itemTop = active.offsetTop;
+    const itemBottom = itemTop + active.offsetHeight;
+    const viewTop = list.scrollTop;
+    const viewBottom = viewTop + list.clientHeight;
+
+    if (itemTop - pad < viewTop) {
+      list.scrollTop = Math.max(0, itemTop - pad);
+      return;
+    }
+
+    if (itemBottom + pad > viewBottom) {
+      list.scrollTop = Math.max(0, itemBottom + pad - list.clientHeight);
+    }
+  };
+
   const render = () => {
     list.innerHTML = "";
     filtered.forEach((cmd, idx) => {
@@ -557,6 +578,9 @@ const initCommandPalette = () => {
 
       list.appendChild(li);
     });
+
+    // Keep the selected item visible when navigating with ArrowUp/ArrowDown.
+    scrollSelectionIntoView();
   };
 
   const update = () => {
@@ -585,6 +609,7 @@ const initCommandPalette = () => {
     root.setAttribute("aria-hidden", "false");
     input.value = "";
     selectedIndex = 0;
+    list.scrollTop = 0;
     update();
     window.setTimeout(() => input.focus(), 0);
   };
