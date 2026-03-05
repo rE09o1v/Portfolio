@@ -494,12 +494,12 @@ const initCommandPalette = () => {
       run: () => window.open("https://github.com/rE09o1v/c-orc", "_blank", "noopener,noreferrer"),
     },
     {
-      id: "open-eoc",
-      title: "Repo: eye-of-cascade",
-      sub: "session dashboard",
+      id: "open-shinkoku-kun",
+      title: "Repo: shinkoku-kun",
+      sub: "white-tax desktop app",
       kbd: "R3",
-      keywords: "eye-of-cascade nextjs vitest",
-      run: () => window.open("https://github.com/rE09o1v/eye-of-cascade", "_blank", "noopener,noreferrer"),
+      keywords: "shinkoku-kun tauri react typescript sqlite",
+      run: () => window.open("https://github.com/rE09o1v/shinkoku-kun", "_blank", "noopener,noreferrer"),
     },
     {
       id: "sudo",
