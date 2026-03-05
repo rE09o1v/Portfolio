@@ -1087,6 +1087,16 @@ footer {
   font-size: 1.02rem;
 }
 
+.post-body img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0.9rem auto;
+  border-radius: 0.55rem;
+  border: 1px solid rgba(118, 255, 190, 0.22);
+}
+
 .post-body h2,
 .post-body h3 {
   font-family: "Share Tech Mono", monospace;
