@@ -5,7 +5,6 @@ const navLinks = Array.from(document.querySelectorAll(".nav-link"));
 const hashNavLinks = navLinks.filter((link) => (link.getAttribute("href") || "").startsWith("#"));
 
 const skillBars = document.querySelectorAll(".skill-progress");
-const contactForm = document.getElementById("contactForm");
 
 const closeMobileMenu = () => {
   navMenu?.classList.remove("active");
@@ -100,31 +99,6 @@ if (revealTargets.length > 0) {
   revealTargets.forEach((target) => revealObserver.observe(target));
 }
 
-if (contactForm) {
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(contactForm);
-    const name = String(formData.get("name") || "").trim();
-    const email = String(formData.get("email") || "").trim();
-    const message = String(formData.get("message") || "").trim();
-
-    if (!name || !email || !message) {
-      alert("すべての項目を入力してください。");
-      return;
-    }
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-      alert("正しいメールアドレスを入力してください。");
-      return;
-    }
-
-    console.log("contact payload", { name, email, message });
-    alert("メッセージを受け取りました。ありがとうございます。");
-    contactForm.reset();
-  });
-}
 
 const sections = Array.from(document.querySelectorAll("section[id]"));
 window.addEventListener(
