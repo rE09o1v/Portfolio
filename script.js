@@ -4,8 +4,6 @@ const navMenu = document.querySelector(".nav-menu");
 const navLinks = Array.from(document.querySelectorAll(".nav-link"));
 const hashNavLinks = navLinks.filter((link) => (link.getAttribute("href") || "").startsWith("#"));
 
-const skillBars = document.querySelectorAll(".skill-progress");
-
 const closeMobileMenu = () => {
   navMenu?.classList.remove("active");
   navToggle?.classList.remove("active");
@@ -56,29 +54,6 @@ const updateHeaderState = () => {
 
 updateHeaderState();
 window.addEventListener("scroll", updateHeaderState, { passive: true });
-
-if (skillBars.length > 0) {
-  const skillObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        const bar = entry.target;
-        const level = bar.getAttribute("data-level") || "0%";
-        bar.style.width = level;
-        skillObserver.unobserve(bar);
-      });
-    },
-    { threshold: 0.35 }
-  );
-
-  skillBars.forEach((bar) => {
-    bar.style.width = "0%";
-    skillObserver.observe(bar);
-  });
-}
 
 const revealTargets = document.querySelectorAll(".reveal");
 if (revealTargets.length > 0) {
@@ -426,15 +401,7 @@ const initCommandPalette = () => {
       keywords: "logs timeline audit",
       run: () => go("logs.html"),
     },
-    {
-      id: "open-blog",
-      title: "Open: Blog",
-      sub: "記事一覧",
-      kbd: "B",
-      keywords: "blog posts",
-      run: () => go("blog/"),
-    },
-    {
+{
       id: "open-x",
       title: "Open: X",
       sub: "@r3o_caffeine",

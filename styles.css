@@ -533,6 +533,30 @@ footer {
   transition: width 0.8s ease;
 }
 
+.tech-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.tech-group {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.tech-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--text-sub);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
