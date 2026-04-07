@@ -4,3 +4,9 @@
 /.bundle/
 /.vendor/
 
+# R3O Works project management
+CLAUDE.md
+STATUS.md
+.claude/
+design/
+
